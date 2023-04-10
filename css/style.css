@@ -10,9 +10,6 @@
 *::after {
     box-sizing: border-box;
 }
-html {
-    cursor: url('../cursor.png'), auto;
-}
 
 
 body {
