@@ -14,14 +14,14 @@ const gettingHungry = (myTamagotchi)=>{
     setInterval(function() {
         hunger.innerHTML = `Faim: ${myTamagotchi.hunger}`;
         myTamagotchi.hunger--;
-    }, 200);
+    }, 1400);
 };
 const gettingSleepy = (myTamagotchi)=>{
     let sleepiness = document.querySelector(".sleepiness");
     setInterval(function() {
         sleepiness.innerHTML = `Amusement: ${myTamagotchi.sleepiness}`;
         myTamagotchi.sleepiness--;
-    }, 400);
+    }, 1000);
 };
 // INTERACTIONS AVEC LES BOUTONS
 const feed = ()=>{

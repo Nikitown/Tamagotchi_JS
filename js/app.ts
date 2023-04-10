@@ -19,7 +19,7 @@ const gettingHungry = (myTamagotchi) => {
         hunger.innerHTML = `Faim: ${myTamagotchi.hunger}`
         
         myTamagotchi.hunger--
-    }, 200)
+    }, 1400)
 }
 
 const gettingSleepy =(myTamagotchi) => {
@@ -27,7 +27,7 @@ const gettingSleepy =(myTamagotchi) => {
     setInterval(function () {
         sleepiness.innerHTML = `Amusement: ${myTamagotchi.sleepiness}`
         myTamagotchi.sleepiness--
-    }, 400)
+    }, 1000)
 }
 
 
