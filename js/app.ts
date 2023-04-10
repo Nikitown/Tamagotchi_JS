@@ -9,11 +9,11 @@ class Tamagotchi {
     }
 }
 
-let myTamagotchi;
+let myTamagotchi: any;
 
 // STATS - fonctions qui décrémentent les stats :
 const gettingHungry = (myTamagotchi) => {
-    let hunger = document.querySelector('.hunger')
+    let hunger = document.querySelector('.hunger') as HTMLBodyElement
     
     setInterval(function() {
         hunger.innerHTML = `Faim: ${myTamagotchi.hunger}`
@@ -23,7 +23,7 @@ const gettingHungry = (myTamagotchi) => {
 }
 
 const gettingSleepy =(myTamagotchi) => {
-    let sleepiness = document.querySelector('.sleepiness')
+    let sleepiness = document.querySelector('.sleepiness') as HTMLBodyElement
     setInterval(function () {
         sleepiness.innerHTML = `Amusement: ${myTamagotchi.sleepiness}`
         myTamagotchi.sleepiness--
@@ -38,8 +38,8 @@ const feed = () => {
     if(myTamagotchi.hunger > 0) {
         myTamagotchi.hunger++
     }
-    let hunger = document.querySelector('.hunger')
-    hunger.innerHTML = `Hunger: ${myTamagotchi.hunger}`
+    let hunger = document.querySelector('.hunger') as HTMLBodyElement
+    hunger.innerHTML = `Faim: ${myTamagotchi.hunger}`
 }
 
 
@@ -49,30 +49,18 @@ const feed = () => {
 const checkIfDead = () => {
     let myInterval = setInterval(function() {
         if(myTamagotchi.hunger === 0 || myTamagotchi.sleepiness === 0 ) {
-            alert(`Désolé, ${myTamagotchi.name} est mort...`)
+            alert(`Désolé, ${myTamagotchi.name} est mort'...`)
             clearInterval(myInterval)
-            // Des que ça atteint zéro, l'image "RiP " s'affiche.
-            let pet = document.querySelector('.pet')
-            pet.remove()
-            let all = document.querySelector('.all')
-            all.remove()
-            let titles = document.querySelector('#giveNameDiv')
-            titles.remove()
-            let rip = document.createElement('img')
-            rip.setAttribute('src','rip.png')
-            rip.setAttribute('class','rip')
-            let petContainer = document.querySelector('.petContainer')
-            petContainer.appendChild(rip)
         }
     })
 }
 
 // Donne un nom au Tamagotchi de l'utilisateur.
 // Stockage dans une variable appellée "name"
-const giveName = () => {
+const giveName = () =>  {
     let name = prompt('Quel nom voulez-vous donner à votre Tamagotchi ?')
     console.log(name)
-    let giveNameButton = document.querySelector('#name')
+    let giveNameButton = document.querySelector('#name') as HTMLBodyElement
 
     // Supprime le bouton quand on à donné le nom.
     giveNameButton.remove()
@@ -85,8 +73,8 @@ const giveName = () => {
     instructions.innerHTML = `Attention aux stats de ${name} ! Si les stats tombent à zéro, ${name} meurt.`
     // Dernier ajout du appendchild 
     let giveNameDiv = document.querySelector('#giveNameDiv')
-    giveNameDiv.appendChild(greeting)
-    giveNameDiv.appendChild(instructions)
+    giveNameDiv?.appendChild(greeting)
+    giveNameDiv?.appendChild(instructions)
     // Un nouveau pet est crée de la classe "tamagotchi"
     myTamagotchi = new Tamagotchi(name)
  
@@ -100,10 +88,7 @@ const giveName = () => {
 // ---------------------------------------------------------------
 // EVENT LISTENERS
 // Quand un nouveau joueur veut donner un nom à son nouveau Tamagotchi.
-document.querySelector('#name').addEventListener('click',giveName)
-document.querySelector('#feed').addEventListener('click',() => {
+document.querySelector('#name')?.addEventListener('click',giveName) 
+document.querySelector('#feed')?.addEventListener('click',() => {
     feed(myTamagotchi)})
-document.querySelector('#lights').addEventListener('click', () => {
-    lights(myTamagotchi)})
-document.querySelector('#play').addEventListener('click', () => {
-    play(myTamagotchi)})
+

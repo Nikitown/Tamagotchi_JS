@@ -34,20 +34,8 @@ const feed = ()=>{
 const checkIfDead = ()=>{
     let myInterval = setInterval(function() {
         if (myTamagotchi.hunger === 0 || myTamagotchi.sleepiness === 0) {
-            alert(`Désolé, ${myTamagotchi.name} est mort...`);
+            alert(`Désolé, ${myTamagotchi.name} est mort'...`);
             clearInterval(myInterval);
-            // Des que ça atteint zéro, l'image "RiP " s'affiche.
-            let pet = document.querySelector(".pet");
-            pet.remove();
-            let all = document.querySelector(".all");
-            all.remove();
-            let titles = document.querySelector("#giveNameDiv");
-            titles.remove();
-            let rip = document.createElement("img");
-            rip.setAttribute("src", "rip.png");
-            rip.setAttribute("class", "rip");
-            let petContainer = document.querySelector(".petContainer");
-            petContainer.appendChild(rip);
         }
     });
 };
@@ -66,8 +54,8 @@ const giveName = ()=>{
     instructions.innerHTML = `Attention aux stats de ${name} ! Si les stats tombent à zéro, ${name} meurt.`;
     // Dernier ajout du appendchild 
     let giveNameDiv = document.querySelector("#giveNameDiv");
-    giveNameDiv.appendChild(greeting);
-    giveNameDiv.appendChild(instructions);
+    giveNameDiv?.appendChild(greeting);
+    giveNameDiv?.appendChild(instructions);
     // Un nouveau pet est crée de la classe "tamagotchi"
     myTamagotchi = new Tamagotchi(name);
     // La décrémentation des valeurs est déclarée ici ainsi que le statut du Tamagotchi.
@@ -78,15 +66,9 @@ const giveName = ()=>{
 // ---------------------------------------------------------------
 // EVENT LISTENERS
 // Quand un nouveau joueur veut donner un nom à son nouveau Tamagotchi.
-document.querySelector("#name").addEventListener("click", giveName);
-document.querySelector("#feed").addEventListener("click", ()=>{
+document.querySelector("#name")?.addEventListener("click", giveName);
+document.querySelector("#feed")?.addEventListener("click", ()=>{
     feed(myTamagotchi);
 });
-document.querySelector("#lights").addEventListener("click", ()=>{
-    lights(myTamagotchi);
-});
-document.querySelector("#play").addEventListener("click", ()=>{
-    play(myTamagotchi);
-});
 
-//# sourceMappingURL=index.cea00a9b.js.map
+//# sourceMappingURL=index.77a9e13a.js.map
