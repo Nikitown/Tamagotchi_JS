@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Share+Tech+Mono&display=swap');
+
+/* MAIN PAGE STYLING */
+* {
+    margin: 0;
+    padding: 0;
+}
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+html {
+    cursor: url('../cursor.png'), auto;
+}
+
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../background.gif");
+    background-size: cover;
+    backdrop-filter: brightness(150%);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5rem 0 0 0;
+}
+header h1 {
+    font-family: 'Gochi Hand', cursive;
+    color: rgb(255, 255, 255);
+    font-size: 5rem;
+    filter: drop-shadow(-2px 2px 2px #fff0c9);
+}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+#giveNameDiv {
+    width: 100%;
+    text-align: center;
+    color: white; 
+    font-size: 1.5rem;
+}
+#giveNameDiv p {
+    margin-top: 1.5rem;
+}
+.main .playDiv {
+    display: flex; 
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    width: 60%; 
+    height: auto;
+    background-color: rgb(156, 176, 161);
+    border: solid 3px white;
+    border-radius: 30px;
+    padding: 2rem;
+    margin: 2rem 2rem 6rem 2rem;
+    text-align: center;
+}
+.main .playDiv .greeting {
+    margin: 1rem 0 1rem 0;
+}
+#name {
+    margin-bottom: 1.5rem;
+}
+
+#giveNameDiv {
+    color: black;
+    margin-bottom: 1rem;
+}
+
+
+
+
+/* Page du Jeu*/
+.gameStarted .playDiv {
+    height: auto; 
+    margin-bottom: 1rem;
+    padding: 3rem 5rem;
+}
+.gameStarted .playDiv .instructions {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+.gameStarted .playDiv .instructions p {
+    color: black;
+}
+.petContainer {
+    width: 100%;
+}
+
+
+
+.tamagotchiDiv {
+    display: flex; 
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 50vh;
+}
+
+.tamagotchiDiv .tamagotchi {
+    object-fit: contain;
+    position: absolute;
+    width: 70%;
+    margin: 0 30px 30px 30px;
+    filter: drop-shadow(-2px 2px 2px #ffffff);
+}
+
+#goHomeBtn {
+    margin-top: 2rem;
+}
+
+button {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem;
+    border: none;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #576e56;
+    color: white;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #333e33;
+}
+
+.gameStarted .playDiv .all {
+    width: 100%;
+    display: flex;
+}
+
+.gameStarted .playDiv .stats,
+.gameStarted .playDiv .interact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    text-align: left;
+}
+
+.gameStarted .playDiv .stat p {
+    font-size: 1.5rem;
+   
+}
+
+.gameStarted .playDiv .stat {
+    width: 100%;
+    text-align: center; 
+    margin: 10px 0 10px 0;
+}
+
+.gameStarted .playDiv .interaction {
+    width: 100%;
+    border: solid 2px black;
+    width: 50%;
+}
+
+.gameStarted .playDiv .interaction:hover {
+    filter: drop-shadow(-2px 2px 2px #ffffff);
+}
+
+/* Animation quand le pet est mort*/
+.gameStarted .playDiv .rip {
+    width: 30%;
+    animation: TopDown 4s linear;
+}
+@keyframes TopDown{
+    0% {
+        transform: translatey(-200%);
+    }
+    100% {
+        transform: translatey(-0%);
+    }
+}
+
+a {
+    color: white; 
+    text-decoration: none;
+    font-size: smaller;
+}
+
+a.credit {
+    position: absolute; 
+    bottom: 10px;
+    left: 10px; 
+}
